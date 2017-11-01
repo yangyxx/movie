@@ -1,0 +1,27 @@
+<div class="list">
+    <ul>
+        <li ng-repeat="value in data.subjects">
+            <a href="#/subject/{{value.id}}" class="bbb">
+                <img ng-src={{value.images.large}} alt="{{value.title}}">
+            </a>
+            <div class="meta">
+                <h4><span>{{value.title}}</span> <em>{{value.rating.average}}</em></h4>
+                <div class="otherinfo">类型:<span>{{value.genres.join('、')}}</span></div>
+            </div>
+        </li>
+    </ul>
+    <div class="paging">
+        <label>总共：{{total}}条记录,第{{pages}}/{{totalPage}}页;</label>
+        <!-- 加上disable类样式，表示按钮禁用状态 -->
+        <button class="prev"  ng-class="{disable:disables}" ng-click="changepage(pages-1)">上一页</button>
+        <button class="next" ng-class="{disable:disables2}" ng-click="changepage(pages+1)">下一页</button>
+    </div>
+</div>
+<div ng-show="isload" class="loading-box"></div>
+<div ng-show="isload" class="spinner">
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+</div>
